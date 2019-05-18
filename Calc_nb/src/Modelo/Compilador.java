@@ -1,5 +1,9 @@
-package calculadora_nb;
+package Modelo;
 
+import Modelo.NodoValor;
+import Modelo.SyntaxErrorException;
+import Modelo.NodoParentesis;
+import Modelo.NodoOperador;
 import java.util.EmptyStackException;
 import java.util.Stack;
 import java.util.StringTokenizer;

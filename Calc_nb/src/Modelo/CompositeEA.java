@@ -1,4 +1,4 @@
-package calculadora_nb;
+package Modelo;
 
 /**
  * Interfaz que nos ayudará a jerarquizar a los nodos que forman el árbol de

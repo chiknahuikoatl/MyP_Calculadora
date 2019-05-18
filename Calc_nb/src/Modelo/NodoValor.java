@@ -1,4 +1,4 @@
-package calculadora_nb;
+package Modelo;
 
 /**
  * Clase que nos modelará a los nodos que tienen un valor aritmético.

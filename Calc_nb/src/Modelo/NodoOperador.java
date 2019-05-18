@@ -1,4 +1,4 @@
-package calculadora_nb;
+package Modelo;
 
 /**
  * Clase abstracta que modela a los nodos que contienen operadores aritméticos

@@ -1,4 +1,4 @@
-package calculadora_nb;
+package Vista;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -30,15 +30,20 @@ public class Controlador implements Initializable {
     @FXML
     private Button uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero;
     @FXML
-    private Button del, clear;
+    private Button del, limpia;
     @FXML
     private Button pizq, pder, mvi, mvd, pto;
     @FXML
     private Button igual;
 
     @FXML
-    private void suma(ActionEvent evento){
-        
+    private void sum(ActionEvent evento){
+        disp.appendText("+");
+    }
+
+    @FXML
+    private void limp(ActionEvent evento){
+        disp.clear();
     }
 
     @Override

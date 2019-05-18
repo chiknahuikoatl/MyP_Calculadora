@@ -1,4 +1,4 @@
-package calculadora_nb;
+package Modelo;
 
 /**
  * 
