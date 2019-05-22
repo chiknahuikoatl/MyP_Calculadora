@@ -15,8 +15,9 @@ public class NodoRaiz extends NodoOperador {
     }
 
     /**
-     * * La evaluación del nodo, resta la evaluación de los hijos izquierdo y derecho.
-     * @return
+    * La evaluación del nodo, calcula la raíz cuadrada de la evaluación del nodo
+    * derecho.
+    * @return la evaluación.
      */
     @Override
     public double evalua() {

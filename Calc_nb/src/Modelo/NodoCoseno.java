@@ -15,8 +15,9 @@ public class NodoCoseno extends NodoOperador {
     }
 
     /**
-     * * La evaluación del nodo, resta la evaluación de los hijos izquierdo y derecho.
-     * @return
+     * La evaluación del nodo, calcula el coseno de la evaluación del nodo
+     * derecho.
+     * @return la evaluación.
      */
     @Override
     public double evalua() {

@@ -15,8 +15,8 @@ public class NodoTangente extends NodoOperador {
     }
 
     /**
-     * * La evaluación del nodo, resta la evaluación de los hijos izquierdo y derecho.
-     * @return
+     * * La evaluación del nodo, calcula la tangente del nodo derecho.
+     * @return la evaluación.
      */
     @Override
     public double evalua() {
