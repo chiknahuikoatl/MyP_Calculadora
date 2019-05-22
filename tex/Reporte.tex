@@ -1,0 +1,95 @@
+\documentclass[a4paper,12pt]{report}
+
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\graphicspath{ {imagenes/} }
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\title{\bf Tarea 6}
+\author{Jerónimo Almeida Rodríguez}
+\author{Martin Felipe Espinal Cruces}
+\date{\today}
+
+\pagestyle{fancy}
+\lhead{Almeida \& Espinal}
+\chead{Tarea 6}
+\rhead{\today}
+\lfoot{jalrod@ciencias.unam.mx}
+\rfoot{cofy43@ciencias.unam.mx}
+
+\begin{document}
+\begin{titlepage}
+    \centering
+    {\scshape\Huge Universidad Nacional Autónoma de México \par}
+    \vspace{2cm}
+    {\scshape\huge Modelado y Programación\par}
+    \vspace{2cm}
+    {\huge\bfseries Tarea 6\par}
+    \vspace{1.5cm}
+    {\Large\textsc Jerónimo Almeida Rodríguez \par}
+    \vspace{.25cm}
+    {\large\texttt{ jalrod@ciencias.unam.mx}\par}
+    \vspace{1cm}
+    {\Large\textsc Martin Felipe Espinal Cruces \par}
+    \vspace{.25cm}
+    {\large\texttt{cofy43b@ciencias.unam.mx}\par}
+    \vspace{2cm}
+    \vfill
+    \begin{figure}[hb!]
+        \includegraphics[width=.3\textwidth]
+            {../../logos/escudo_f-ciencias.png}\hfill
+        \includegraphics[width=.3\textwidth]
+            {../../logos/Escudo_UNAM.png}\hfill
+    \end{figure}
+\end{titlepage}
+
+\section*{Planteamiento del Problema.}{
+    El planteamiento del problema se encuentra en la especificación de la tarea.
+}
+\section*{Objetivo.}{
+    Desarrollar una interfaz gráfica e implementar operaciones para una
+    calcualdora con el objetivo de entender el proceso de un compilador. Esto
+    mediante el procesamiento de la expresión aritmética dada.
+}
+\section*{Desarrollo.}{
+    Lo primero que se hizo fue hacer la interfaz gráfica con los botones
+    correspondientes a cada elemento a implementar.\\
+    Después, se creó el archivo \texttt{ControladorVista.java} dónde cada
+    símbolo se introduciría a la cadena que representa la expresión aritmética.
+    Al precionar el botón de $=$, la cadena se envía al modelo para ser
+    procesada e imprime en la pantalla el resultado de la evaluación en caso de
+    que la expresión sea correcta. En otro caso imprime un error.\\
+    Para evaluar los operadores extras se añadieron al \texttt{StringTokenizer}
+    de la clase \texttt{NodoOperador.java} representaciones en cadena de dichas
+    operaciones. Después se crearon sus nodos correspondientes tomando en cuenta
+    su precedencia y se añadieron a la fábrica de métodos del compilador.\\
+    Finalmente se añadió su representación en cadena en la clase
+    \texttt{NodoOperador.java}. Cabe mencionar que la representacion en cadena
+    de un opjeto de tipo \texttt{CompositeEA} es distinta a la de la espresión
+    aritmética por fines de practicidad, para poder procesar de manera más
+    sencilla los operadores.
+}
+\section*{Solución.}{
+    Además de lo anteriormente mencionado y de lo especificado en la
+    especificación, se añadieron los siguientes operadores:
+    \begin{align*}
+        < &:= \text{mueve el cursor un caracter a la izquierda.}\\
+        > &:= \text{mueve el cursor un caracter a la derecha.}\\
+        \pi &:= \text{procesa la constante pi}\\
+        *Backspace &:= \text{Borra el caracter anterior (a la izquierda).}
+    \end{align*}
+}
+
+\begin{thebibliography}{}
+\end{thebibliography}
+\end{document}
