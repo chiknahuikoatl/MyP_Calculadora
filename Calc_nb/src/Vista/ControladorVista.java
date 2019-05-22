@@ -30,16 +30,13 @@ public class ControladorVista implements Initializable {
 
     @FXML
     private TextArea disp;
-    @FXML
-    private Button suma, resta, div, mul, raiz, sen, cos, tan;
-    @FXML
-    private Button uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, cero;
-    @FXML
-    private Button del, limpia;
-    @FXML
-    private Button pizq, pder, mvi, mvd, pto;
-    @FXML
-    private Button igual;
+
+
+    /*
+     * Los siguientes métodos concatenan el símbolo del botón que es precionado
+     * a la representación en cadena de la expresión aritmética que se quiere
+     * formar.
+     */
 
     @FXML
     private void sum(ActionEvent evento){
@@ -131,26 +128,34 @@ public class ControladorVista implements Initializable {
         disp.insertText(disp.getCaretPosition(),".");
     }
 
+    // Método para limpear el área de texto.
     @FXML
     private void limp(ActionEvent evento){
         disp.clear();
     }
 
+    // Mueve el cursor un caracter hacia atrás.
     @FXML
     private void atras(ActionEvent evento){
         disp.backward();
     }
 
+    // Adelanta el cursor un caracter.
     @FXML
     private void adelante(ActionEvent evento){
         disp.forward();
     }
 
+    // Borra el caracter anterior.
     @FXML
     private void borra(ActionEvent evento){
         disp.deletePreviousChar();
     }
 
+    /*
+     * Los siguientes métodos dan una representación en cadena de los operadores
+     * raiz, sen, cos, tan y envuelven entre paréntesis la expresión a evaluar.
+     */
     @FXML
     private void root(ActionEvent evento){
         disp.insertText(disp.getCaretPosition(),"\u221A()");
@@ -175,17 +180,23 @@ public class ControladorVista implements Initializable {
         disp.backward();
     }
 
+    // Evaluá la expresión escrita en el cuadro de texto.
     @FXML
     private void resuelve(ActionEvent evento){
         Compilador compi = new Compilador();
-        StringTokenizer tokens = compi.analisisLexico(disp.getText());
-        try{
-            CompositeEA expresion = compi.arbolDeAnalisisSintactico(tokens);
-            disp.clear();
-            disp.insertText(disp.getCaretPosition(),""+expresion.evalua());
-        }catch(SyntaxErrorException e){
-            disp.clear();
-            disp.appendText(e+"");
+        String texto = disp.getText();
+        if (texto.equals("")){ 
+            disp.appendText("");
+        }else{ 
+            StringTokenizer tokens = compi.analisisLexico(texto);
+            try{
+                CompositeEA expresion = compi.arbolDeAnalisisSintactico(tokens);
+                disp.clear();
+                disp.insertText(disp.getCaretPosition(),""+expresion.evalua());
+            }catch(SyntaxErrorException e){
+                disp.clear();
+                disp.appendText(e+"");
+            }
         }
     }
 
