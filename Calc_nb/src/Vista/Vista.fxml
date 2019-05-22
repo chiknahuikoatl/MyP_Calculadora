@@ -75,7 +75,8 @@
                        GridPane.columnIndex="1" GridPane.rowIndex="4" onAction="#huit" />
                    <Button fx:id="nueve" mnemonicParsing="false" prefHeight="51.0" prefWidth="55.0" text="9"
                        GridPane.columnIndex="2" GridPane.rowIndex="4" onAction="#neuf" />
-                   <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="55.0" text="" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                   <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="55.0" text="&#x03C0;"
+                       GridPane.columnIndex="3" GridPane.rowIndex="4" onAction="#ctepi" />
                    <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="100.0" text="" GridPane.columnIndex="4" GridPane.rowIndex="4" />
                    <Button fx:id="pto" mnemonicParsing="false" prefHeight="51.0" prefWidth="55.0" text="."
                        GridPane.columnIndex="0" GridPane.rowIndex="5" onAction="#punto" />

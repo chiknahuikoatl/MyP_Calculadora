@@ -122,6 +122,11 @@ public class ControladorVista implements Initializable {
     }
 
     @FXML
+    private void ctepi(ActionEvent evento){
+        disp.insertText(disp.getCaretPosition(), "\u03C0");
+    }
+
+    @FXML
     private void punto(ActionEvent evento){
         disp.insertText(disp.getCaretPosition(),".");
     }
@@ -154,19 +159,19 @@ public class ControladorVista implements Initializable {
 
     @FXML
     private void seno(ActionEvent evento){
-        disp.insertText(disp.getCaretPosition(),"sin()");
+        disp.insertText(disp.getCaretPosition(),"s()");
         disp.backward();
     }
 
     @FXML
     private void coseno(ActionEvent evento){
-        disp.insertText(disp.getCaretPosition(),"cos()");
+        disp.insertText(disp.getCaretPosition(),"c()");
         disp.backward();
     }
 
     @FXML
     private void tangente(ActionEvent evento){
-        disp.insertText(disp.getCaretPosition(),"tan()");
+        disp.insertText(disp.getCaretPosition(),"t()");
         disp.backward();
     }
 

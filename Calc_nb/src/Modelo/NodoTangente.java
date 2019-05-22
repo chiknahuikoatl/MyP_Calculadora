@@ -22,7 +22,7 @@ public class NodoTangente extends NodoOperador {
     public double evalua() {
         double d = der.evalua();
         if (Double.compare(Math.PI, d) == Math.PI) {
-            throw new ArithmeticException("Error: Dividir entre cero");
+            throw new ArithmeticException("Error: Tangente no definida.");
         }
         return Math.tan(d);
     }

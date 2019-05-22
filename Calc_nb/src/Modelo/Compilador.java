@@ -7,6 +7,7 @@ import Modelo.NodoOperador;
 import java.util.EmptyStackException;
 import java.util.Stack;
 import java.util.StringTokenizer;
+import java.lang.Math;
 
 /**
  * Clase diseñada para realizar la compilación del lenguaje de la calculadora.
@@ -28,7 +29,8 @@ public class Compilador {
      */
     public StringTokenizer analisisLexico(String cadena) {
         cadena = cadena.replace(" ", "");
-        StringTokenizer tokenizer = new StringTokenizer(cadena, "()\\+\\*\\-\\/\\\u221A\\sin\\cos\\tan", true);
+        StringTokenizer tokenizer = new StringTokenizer(cadena,
+            "()sct\\+\\*\\-\\/\\\u221A\\\u03C0", true);
 
         return tokenizer;
     }
@@ -58,6 +60,12 @@ public class Compilador {
             if (actual.equals(")")) {
                 casoParentesisDerecho(operadores, salida);
                 anteriorEsOperador = true;
+            } else if (actual.equals("\u03C0")) {
+                // Caso en el que el caracter es el símbolo de pi.
+                // Crea un nuevo nodo con su valor.
+                n = new NodoValor(Math.PI);
+                salida.push(n);
+                anteriorEsOperador = false;
             } else {
                 try {
                     n = new NodoValor(Double.parseDouble(actual));
