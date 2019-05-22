@@ -4,7 +4,7 @@ package Modelo;
  * Clase abstracta que modela a los nodos que contienen operadores aritméticos
  * y paréntesis izquierdos. La clase no puede ser concreta porque la
  * evaluación de cada nodo depende del operador de cada nodo.
- * 
+ *
  * @author Alejandro Hernández Mora <alejandrohmora@ciencias.unam.mx>
  */
 public abstract class NodoOperador implements CompositeEA{
@@ -19,7 +19,7 @@ public abstract class NodoOperador implements CompositeEA{
      * La precedencia en la jerarquía de operadores.
      */
     protected int precedence;
-    
+
     /**
      * Constructor por omisión.
      */
@@ -37,7 +37,7 @@ public abstract class NodoOperador implements CompositeEA{
         this.izq=izq;
         this.der=der;
     }
-    
+
     /**
      * Constructor copia
      * @param n
@@ -46,15 +46,15 @@ public abstract class NodoOperador implements CompositeEA{
         izq=n.izq;
         der=n.der;
     }
-    
+
     /**
-     * 
+     *
      * @param izq
      */
     public void setIzq(CompositeEA izq){
         this.izq=izq;
     }
-    
+
     /**
      *
      * @param der
@@ -62,7 +62,7 @@ public abstract class NodoOperador implements CompositeEA{
     public void setDer(CompositeEA der){
         this.der=der;
     }
-    
+
     /**
      *
      * @return
@@ -70,18 +70,22 @@ public abstract class NodoOperador implements CompositeEA{
     public int getPrecedence(){
         return precedence;
     }
-    
+
     /**
      * Método que se encarga de la represencación en una cadena de los nodos.
      * Este método se implementa en esta clase abstracta para evitar repetir el
      * código en las clases concretas.
-     * @return 
+     * @return
      */
     @Override
     public String toString() {
         String operador = this instanceof NodoSuma ? " + "
                         : this instanceof NodoResta ? " - "
-                        : this instanceof NodoMultiplicacion ? " * " : " / ";
+                        : this instanceof NodoMultiplicacion ? " * "
+                        : this instanceof NodoDivision ? " / "
+                        : this instanceof NodoRaiz ? " \u221A "
+                        : this instanceof NodoSeno ? " sin "
+                        : this instanceof NodoCoseno ? " cos " : " tan ";
 
         if (izq != null) {
             return "(" + izq + operador + der + ")";
@@ -89,7 +93,7 @@ public abstract class NodoOperador implements CompositeEA{
         return  "("+ operador + der + ")";
 
     }
-    
+
     /**
      * Método estático que genera una instancia de {@link NodoOperador}, dependiendo
      * de el operando que representa.
@@ -114,9 +118,17 @@ public abstract class NodoOperador implements CompositeEA{
                     return new NodoDivision(null,null);
                 case "(":
                     return new NodoParentesis();
+                case "\u221A":
+                    return new NodoRaiz(null);
+                case "sin":
+                    return new NodoSeno(null);
+                case "cos":
+                    return new NodoCoseno(null);
+                case "tan":
+                    return new NodoTangente(null);
                 default:
                     throw new SyntaxErrorException("Error de Sintáxis");
             }
     }
-    
+
 }
